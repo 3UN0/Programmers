@@ -26,7 +26,7 @@ class Solution {
             dfs(n, number, count + i + 1, val - temp);
             dfs(n, number, count + i + 1, val * temp);
             dfs(n, number, count + i + 1, val / temp);
-            temp = temp*10 + temp;
+            temp = temp*10 + n;
         }
         
     }
