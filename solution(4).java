@@ -22,10 +22,8 @@ class Solution {
             }
             
             for(int i=0;i<words.length;i++){
-                if(visit[i] == true) continue;
-                
                 // begin 단어랑 words 배열 비교해서 isChange단어 있으면 offer
-                if(isChange(node.word, words[i])) {
+                if(!visit[i] && isChange(node.word, words[i])) {
                     queue.offer(new Node(words[i], node.count+1));
                     visit[i] = true;
                 }
