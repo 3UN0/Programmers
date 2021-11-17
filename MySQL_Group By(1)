@@ -1,0 +1,11 @@
+-- 코드를 입력하세요
+-- SET : 어떤 변수에 특정 값을 할당할 때 쓰는 명령어
+
+SET @HOUR := -1;
+
+SELECT (@HOUR := @HOUR+1) AS HOUR,
+    (SELECT COUNT(HOUR(DATETIME))
+    FROM ANIMAL_OUTS
+    WHERE HOUR(DATETIME) = @HOUR) AS COUNT
+FROM ANIMAL_OUTS
+WHERE @HOUR<23
