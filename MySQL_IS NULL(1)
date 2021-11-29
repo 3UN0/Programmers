@@ -1,0 +1,8 @@
+-- 코드를 입력하세요
+SELECT ANIMAL_TYPE,
+-- IF(조건문, 참일 때 값, 거짓일 때 값) AS 별칭
+-- IF(NAME IS NULL, 'No name', NAME) AS NAME
+-- IFNULL(컬럼명, VALUE) : 해당 필드 깂이 NULL이면 VALUE 대체 츨력
+IFNULL(NAME, 'No name') AS NAME,
+SEX_UPON_INTAKE
+FROM ANIMAL_INS
