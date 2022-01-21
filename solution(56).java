@@ -1,34 +1,29 @@
+import java.util.Stack;
+
 class Solution
 {
     public int solution(String s)
     {
-        int answer = -1;
+        Stack<Character> stack = new Stack<>();
         
-        String str = "";
-        
-        for(int i=1;i<s.length();i++){
-            char prev = s.charAt(i-1);
-            char now = s.charAt(i);
+        // for(char c : s.toCharArray())
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
             
-            if(now ==(prev)){
-                    System.out.println(str);
-                for(int j=now+1;j<s.length();j++){
-                    str += s.charAt(j);
-                }
-                s = str;
+            // 스택에 변수 있을 때 , 스택의 최근 저장값이 현재 변수와 같을 때
+            // 연속으로 같은 알파벳
+            if(!stack.isEmpty() && stack.peek() == c){
+                stack.pop();
             } else {
-                str += prev;
+                stack.push(c);
             }
-            
-            if(s.length() == 0){
-                answer = 1;
-            } else {
-                answer = 0;
-            }
-            
-            
         }
-
-        return answer;
+        
+        if(stack.isEmpty()){
+            return 1;
+        } else {
+            return 0;
+        }
+        
     }
 }
